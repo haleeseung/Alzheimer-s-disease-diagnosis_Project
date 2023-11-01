@@ -16,5 +16,5 @@
 
 ## 데이터셋 이미지 일부
 
-Non Demented                     Very Mild Demented                     Mild Demented                     Moderate Demented  
+        Non Demented        Very Mild Demented        Mild Demented        Moderate Demented  
 ![nonDem0](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/assets/127108173/cfde2bac-76a0-45dd-b540-0790b79b2b88) ![verymildDem0](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/assets/127108173/01f2522c-9888-45d9-81d6-c39b97a9387d) ![mildDem0](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/assets/127108173/448e4a84-812f-4841-b3b7-34ebe3746a87) ![moderateDem0](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/assets/127108173/49e369d8-4144-4f5a-be10-15e4599df57d)
