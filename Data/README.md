@@ -7,7 +7,7 @@
 ## 데이터셋 파일 설명
 
 - 데이터셋 파일 크기 : 36MB
-- Train Data : 5121개. Test Data : 1279개. Total Data : 6400장.
+- Train Data : 5121개. Test Data : 1279개. Total Data : 6400개.
 - Data File에 대해서는 총 4가지 단계로 분류되어 있으며,
   Non Demented : 치매가 아님.   
   Very Mild Demented : 매우 경미한 치매.   
