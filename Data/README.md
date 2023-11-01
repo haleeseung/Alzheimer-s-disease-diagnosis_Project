@@ -9,10 +9,10 @@
 - 데이터셋 파일 크기 : 36MB
 - Train Data : 5121개. Test Data : 1279개. Total Data : 6400개.
 - Data File에 대해서는 총 4가지 단계로 분류되어 있으며,  
-  Non Demented : 치매가 아님.   
-  Very Mild Demented : 매우 경미한 치매.   
-  Mild Demented : 경미한 치매.   
-  Moderate Demented : 중등도 치매.
+  1. Non Demented : 치매가 아님.   
+  2. Very Mild Demented : 매우 경미한 치매.   
+  3. Mild Demented : 경미한 치매.   
+  4. Moderate Demented : 중등도 치매.
 
 ## 데이터셋 이미지 일부
 
