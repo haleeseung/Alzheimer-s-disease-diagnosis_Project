@@ -6,3 +6,6 @@
 
 ## Project Dataset Files
 [📑Project Dataset Files 주소](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/tree/main/Data)
+
+## Project Record
+[📑Project Record 주소](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/tree/main/Record)
