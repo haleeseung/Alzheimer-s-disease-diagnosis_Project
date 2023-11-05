@@ -7,6 +7,8 @@
   - 결과 : Epoch 10 기준, Train Acc @1: 49.75%, Valid Acc @1: 48.31%  
             Train Acc @5: 49.75%, Valid Acc @5: 48.31%
 ### 11/6 
+**ResNet layer 층 별로 결과 구하기**
+
 * ResNet18 ([💻ResNet18](https://github.com/haleeseung/Alzheimer*s-disease-diagnosis_Project/blob/main/Record/Code/ResNet18.ipynb))
   - 결과 : Epoch 10 기준, Train Acc @1: 0.97%, Valid Acc @1: 1.11%  
               Train Acc @5: 37.94%, Valid Acc @5: 35.94%
@@ -20,7 +22,12 @@
   - 결과 : Epoch 10 기준, Train Acc @1: 2.74%, Valid Acc @1: 2.67%  
               Train Acc @5: 23.89%, Valid Acc @5: 25.26%
 
-다음과 같은 결과로 인하여, 평가지표가 잘 나온 ResNet34를 바탕으로 활용할 예정. 
+다음과 같은 결과로 인하여, 평가지표가 잘 나온 ResNet34를 바탕으로 활용할 예정.  
+
+<모델 성능 향상을 위한 다른 방안>
+1. Epoch 수 증가. (Epoch=10에서 10씩 늘려, Epoch=100까지 비교하기)
+2. Epoch 수를 증가시켰을 때, 시간을 많이 소요할 시 He 초기화를 통해 Epoch수를 줄이되, 일정한 Accuracy 추출.
+3. 드롭아웃 혹은 조기종료 방법 이용.
 
 ### 11/7
 
