@@ -43,7 +43,7 @@ He초기화 방법을 적용했을 때 따로 첨부하지는 않았지만, 성�
 
 **ResNet152 Learning rate : 0.001로 적용**
 
-* ResNet152 - Learning Rate : 0.001 ([]())
+* ResNet152 - Learning Rate : 0.001 ([💻ResNet152 - learning rate : 0.001](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/blob/main/Record/Code/11.9/ResNet152.ipynb))
   - 결과 : Epoch 10 기준, Train Acc @1: 55.25%, Valid Acc @1: 57.23%   
               Train Acc @5: 57.23%, Valid Acc @5: 86.39%
 
