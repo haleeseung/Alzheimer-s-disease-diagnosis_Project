@@ -49,6 +49,26 @@ He초기화 방법을 적용했을 때 따로 첨부하지는 않았지만, 성�
 
 결과를 확인해본 결과, Train Accuracy보다 Validation Accuracy가 더 높게 나왔기에, 과대적합이 발생했다고 판정하였지만 가장 커다란 문제인 정확도를 더 높이고 과대적합을 제어하는 것이 더 나은 선택지라고 생각하였습니다.
 
+### 11/14
+**EfficientNet 모델 이용**
+
+* EfficientNet - Epoch : 10, Learning Rate : 0.001 ([💻EfficientNet](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/blob/main/Record/Code/11.14/EfficientNet.ipynb))
+  - 결과 : Epoch 10 기준, Train Acc @1: 100.00%, Valid Acc @1: 100.00%   
+              Train Acc @5: 100.00%, Valid Acc @5: 100.00%
+
+<img width="597" alt="스크린샷 2023-11-14 오후 11 10 38" src="https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/assets/127108173/1977191a-a01f-49e4-b2a4-b72b701d8e5f">
+
+위의 사진을 통해 확인할 수 있듯이 과적합 문제부터 정확도가 초반부터 Training과 Validation 모두 100%가 나오는 문제가 발생하였습니다. 그래서 Scikit-learn 라이브러리를 이용하여 다른 평가지표(Valid Loss, Precision, Recall, F1 - Score)를 확인해보았습니다. 결과는 사진을 첨부하였습니다.
+
+<img width="1053" alt="스크린샷 2023-11-14 오후 11 12 53" src="https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/assets/127108173/3e3bc2a7-0135-4390-975e-0474350cc65e">
+
+  - Precision(정밀도) : 모델이 True라고 분류한 것 중에서 실제 True인 것의 비율입니다. 즉, Non-Demented가 True에 해당한다고 했을 때, 실제로 Non-Demented 인 비율을 의미한다고 보면 될 것 같습니다. 결과값인 0.750인 75 % 확률이기에, 4명의 알츠하이머 환자 중 3명의 환자만 정확하게 분류를 할 수 있다는 뜻이기에, 성능을 더 올릴 필요가 있다고 볼 수 있습니다.
+
+    
+  - Recall(재현율) : 실제 True인 것 중에서 모델이 True라고 예측한 것의 비율입니다. 실제로 Non-Demented가 True일 때, Non-Demented라고 예측한 비율로 생각하면 될 것입니다. 결과값이 0.489로 좋지 않은 성능을 보여준다고 볼 수 있습니다.  
+
+  - F1 Score : 
+
 
 ## 알츠하이머 치매 프로젝트를 진행하기 위한 논문 리뷰
 알츠하이머 치매 프로젝트를 진행하기 위하여 공부했던 내용들이나, 논문을 읽었던 기록등을 업로드
