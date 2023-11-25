@@ -30,6 +30,8 @@
 3. 드롭아웃 혹은 조기종료 방법 이용.
 
 ### 11/9
+Colab Pro 구매후, V100 GPU 이용. (컴퓨팅 단위 : 100개)
+
 **ResNet34를 Epoch수 100까지 증가시킨 후에 확인**
 
 * ResNet34 - Epoch : 100 ([💻ResNet34-Epoch100](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/blob/main/Record/Code/11.9/ResNet34_Epoch100.ipynb))
@@ -67,7 +69,25 @@ He초기화 방법을 적용했을 때 따로 첨부하지는 않았지만, 성�
     
   - Recall(재현율) : 실제 True인 것 중에서 모델이 True라고 예측한 것의 비율입니다. 실제로 Non-Demented가 True일 때, Non-Demented라고 예측한 비율로 생각하면 될 것입니다. 결과값이 0.489로 좋지 않은 성능을 보여준다고 볼 수 있습니다.  
 
-  - F1 Score : 
+  - F1 Score :
+
+Colab Pro를 구매했을 때, 제공되었던 컴퓨팅 단위 100개를 다 사용하다보니 V100 GPU -> TPU로 런타임 유형이 변경되었습니다. 그 결과, Efficient Net의 Validation Accuracy이 fluctuate 하는 현상이 생겼습니다.
+
+<img width="697" alt="스크린샷 2023-11-26 오전 1 29 49" src="https://github.com/haleeseung/Python-Learning-Alone/assets/127108173/59b815e5-d64e-42f0-989a-9d18f2246d3d">
+
+<img width="624" alt="스크린샷 2023-11-26 오전 1 29 57" src="https://github.com/haleeseung/Python-Learning-Alone/assets/127108173/adfdd974-f847-41c3-b00f-19e77c4cb6ca">
+
+어느 부분이 잘못되었는지 파악하지 못하여, 인터넷 및 자료를 찾아보다 하이퍼 파라미터를 튜닝시키면 문제를 해결할 수 있다는 실마리를 발견하였습니다.  
+하지만, 저의 목표는 EfficientNet 모델과 ResNet 모델을 앙상블 기법을 적용하여 사용할 예정이여서, 두 모델부터 앙상블 하였습니다.
+
+### 11/26
+**EfficientNet & ResNet 앙상블 모델 이용**
+
+* EfficientNet & ResNet Ensemble Model - Epoch : 3, Learning Rate : 1e-7 ([💻EfficientNet & ResNet Ensemble](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/blob/main/Record/Code/11.26/EfficientNet_%2B_ResNet.ipynb))
+  - 결과 : Epoch 3 기준, Train Acc @1:   2.54%, Valid Acc @1:   0.00%   
+              Train Acc @5:   5.74%, Valid Acc @5:   0.00%
+
+Epoch가 3까지 이동하였을 때, 모델이 더 이상 학습하지 못하는 것을 발견하였고, 어느 부분이 문제인지 확인하였을 때, 너무 낮은 학습률을 사용한 것이 잘 못 되었다고 생각이 들었습니다. 그래서 Learning Rate를 1e-3으로 바꾸고, 기존 코드를 확인하면 EnsembleModel 클래스의 final_output에서는 Softmax 활성화 함수가 적용되어 있지 않았었습니다. 그래서 CrossEntropyLoss와 함께 사용될 때는 출력 레이어에 Softmax 활성화 함수를 추가하여 보완하였습니다.
 
 
 ## 알츠하이머 치매 프로젝트를 진행하기 위한 논문 리뷰
