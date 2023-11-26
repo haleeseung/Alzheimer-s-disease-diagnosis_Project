@@ -89,6 +89,20 @@ Colab Pro를 구매했을 때, 제공되었던 컴퓨팅 단위 100개를 다 �
 
 Epoch가 3까지 이동하였을 때, 모델이 더 이상 학습하지 못하는 것을 발견하였고, 어느 부분이 문제인지 확인하였을 때, 너무 낮은 학습률을 사용한 것이 잘 못 되었다고 생각이 들었습니다. 그래서 Learning Rate를 1e-3으로 바꾸고, 기존 코드를 확인하면 EnsembleModel 클래스의 final_output에서는 Softmax 활성화 함수가 적용되어 있지 않았었습니다. 그래서 CrossEntropyLoss와 함께 사용될 때는 출력 레이어에 Softmax 활성화 함수를 추가하여 보완하였습니다.
 
+### 11/27
+**EfficientNet & ResNet Learning Rate를 수정한 앙상블 모델 이용**
+
+* EfficientNet & ResNet Ensemble Model - Epoch : 10, Learning Rate : 1e-4 ([💻EfficientNet & ResNet Ensemble__1](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/blob/main/Record/Code/11.27/EfficientNet_%2B_ResNet__1.ipynb))
+
+결과를 확인해보니, 다음과 같습니다.
+
+<img width="698" alt="스크린샷 2023-11-27 오전 12 19 13" src="https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/assets/127108173/17056663-d8f1-4978-a7b5-17c2c5ae1f4b">
+
+<img width="622" alt="스크린샷 2023-11-27 오전 12 19 21" src="https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/assets/127108173/e6ab28c0-4a0c-453b-8bdf-3a74dafcc865">
+
+TrainingSet 데이터의 학습 정확도는 100.00%에 모두 수렴하고 있지만, ValidationSet 데이터의 Accuracy는 Epoch 3 부분에서 급격하게 떨어졌다가, 다시 올라갔다가 하는 fluctuate 현상이 다시 발생하였습니다. 이러한 현상이 발생한 요인을 몇가지 생각해보았는데, 첫 번째는 과적합(Overfitting)이 발생했을 수 있다고 생각이 들었습니다. 두 번째로는 처음부터 클래스간의 데이터가 불균형하여, 데이터가 많은 Non-Demented에 대한 이미지 데이터는 2560개인 반면에, Moderate Demented는 52개 데이터로 클래스간의 상당한 차이가 있어, Accuracy로는 확인이 어려울 것이라 생각이 들었습니다. 세 번째는, 하이퍼 파라미터 튜닝을 하지 않아 성능이 오르지 않은 것이라 생각이 들었습니다. 이 중에서 저는 두 번째 부분을 먼저 확인해보기로 하였습니다. Accuracy로 성능을 평가하기 보다, ROC AUG를 이용하여 4개의 클래스를 한 클래스를 잡고 나머지랑 비교하는 형식의 이진분류에서 모델의 성능을 잘 평가할 수 있기에, ROC AUG를 성능지표로 사용하였습니다. ROC AUC는 모델이 다른 클래스를 얼마나 잘 구별할 수 있는지를 나타내는 점수를 제공합니다. 높은 점수는 모델이 클래스 간의 차이를 잘 인식한다는 것을 나타내며, 낮은 점수는 모델이 클래스를 잘 구별하지 못한다는 것을 나타냅니다.
+
+
 
 ## 알츠하이머 치매 프로젝트를 진행하기 위한 논문 리뷰
 알츠하이머 치매 프로젝트를 진행하기 위하여 공부했던 내용들이나, 논문을 읽었던 기록등을 업로드
