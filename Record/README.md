@@ -144,6 +144,39 @@ TrainingSet의 성능이 Train Top-1 Acc과 Train Top-5 Acc 기준으로 Epoch�
 
 저는 다음 하이퍼 파라미터 튜닝 방법 중에 베이시안 최적화 방법과 유전 알고리즘 방법을 둘 중 하나를 이용하여 확인해 볼 예정입니다.
 
+### 12/06
+모델의 성능을 향상 시키기 위해 많이 고민도 해보고 찾아본 결과, 하이퍼 파라미터 튜닝은 결국 모델의 적용도 어느정도 되서 성능이 어느정도 나온다는 가정하에 쓰는 것이라 생각이 들었습니다. 그래서 결국 원초적인 문제인, 모델의 성능을 가장 확실하게 향상 시킬 수 있는 방법을 데이터 전처리 단계에서부터 찾아보자고 생각했습니다. 일단 제가 프로젝트를 진행하고 있는 것은 뇌 MRI 이미지 데이터를 이용하여 알츠하이머 치매의 중증 정도를 각 단계에 맞춰 분류를 하는 작업입니다. 그때 문득 든 생각은 뇌 MRI 데이터를 마음대로 수정하여 데이터를 증강시켜도 상관이 없었을까에 대한 물음이 생겼습니다. 이미지 크기를 재설정하는 것과 정규화 단계만 남겨두고 모델을 돌려보기로 마음을 먹었습니다.
+
+**4가지 모델 (기본 데이터 전처리)**
+Epoch : 30  
+Optimizer = AdamW  
+learning_rate = 기본 0.001에서 Epoch 10일때, 0.1배를 줄여줌.  
+
+* ResNet50 ([💻ResNet50](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/blob/main/Record/Code/12.06/ResNet50.ipynb))
+
+<결과>  
+Accuracy  
+<img width="684" alt="스크린샷 2023-12-06 오전 1 25 15" src="https://github.com/haleeseung/Python-Learning-Alone/assets/127108173/ea882062-115b-44c8-9b7f-c64402b0f86a">  
+Loss  
+<img width="674" alt="스크린샷 2023-12-06 오전 1 25 22" src="https://github.com/haleeseung/Python-Learning-Alone/assets/127108173/5c5f4204-b65d-454b-b7f9-d2501f5d41c0">  
+
+* ResNet101 ([💻ResNet101](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/blob/main/Record/Code/12.06/ResNet101.ipynb))
+
+<결과>  
+Accuracy  
+<img width="678" alt="스크린샷 2023-12-06 오전 1 33 23" src="https://github.com/haleeseung/Python-Learning-Alone/assets/127108173/5e42f7c5-c933-4419-b442-0258a7eb0846">  
+Loss  
+<img width="677" alt="스크린샷 2023-12-06 오전 1 33 29" src="https://github.com/haleeseung/Python-Learning-Alone/assets/127108173/0e127377-9148-4efe-8d37-462cec37fc78">  
+
+* EfficientNet ([💻EfficientNet](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/blob/main/Record/Code/12.06/EfficientNet%20(1).ipynb))
+
+<결과>  
+Accuracy  
+<img width="671" alt="스크린샷 2023-12-06 오전 1 40 14" src="https://github.com/haleeseung/Python-Learning-Alone/assets/127108173/4799efbc-60cb-4a43-a731-053b0f3f41ae">  
+Loss  
+<img width="679" alt="스크린샷 2023-12-06 오전 1 40 08" src="https://github.com/haleeseung/Python-Learning-Alone/assets/127108173/616c655a-b21e-4b5f-913c-e6742ab40500">  
+
+확실히 이전에 했던 것에 비하면 성능이 향상된 것을 확인할 수 있습니다. ResNet50을 이용하였을 때, 가장 성능이 높게 나왔고, 하이퍼 파라미터 튜닝 작업만 진행시켜 최적의
 
 
 
