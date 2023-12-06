@@ -176,7 +176,7 @@ Accuracy
 Loss  
 <img width="671" alt="스크린샷 2023-12-06 오전 1 40 14" src="https://github.com/haleeseung/Python-Learning-Alone/assets/127108173/4799efbc-60cb-4a43-a731-053b0f3f41ae">  
 
-* VGG16 ([💻VGG16]())
+* VGG16 ([💻VGG16](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/blob/main/Record/Code/12.06/VGG16.ipynb))
 
 <결과>  
 Accuracy  
