@@ -11,4 +11,4 @@
 [📑Project Record 주소](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/tree/main/Record)
 
 # Final Project
-[🧠🤖Final Project 주소](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/tree/main/Record)
+[🧠🤖Final Project 주소](https://github.com/haleeseung/Alzheimer-s-disease-diagnosis_Project/tree/main/Final%20Project)
